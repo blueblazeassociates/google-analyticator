@@ -1,0 +1,43 @@
+{
+  "name"        : "blueblazeassociates/google-analyticator",
+  "description" : "Adds the necessary JavaScript code to enable Google's Analytics.",
+  "type"        : "wordpress-plugin",
+  "homepage"    : "http://www.videousermanuals.com/google-analyticator",
+  "license"     : "GPL-2.0+",
+  "authors" : [{
+      "name"     : "SumoMe",
+      "homepage" : "http://www.sumome.com",
+      "role"     : "Author/Creator"
+    }, {
+      "name"     : "Ed Gifford",
+      "homepage" : "http://www.blueblazeassociates.com",
+      "role"     : "Composer-fier and Developer",
+      "email"    : "egifford@blueblazeassociates.com"
+    }
+  ],
+  "keywords" : [
+    "analytics",
+    "dashboard",
+    "google",
+    "google analytics",
+    "google analytics plugin",
+    "javascript",
+    "marketing",
+    "pageviews",
+    "statistics",
+    "stats",
+    "tracking",
+    "visits",
+    "web stats",
+    "widget"
+  ],
+  "replace" : {
+    "wpackagist-plugin/google-analyticator" : "6.5.0.0"
+  },
+  "require" : {
+    "php" : ">=5.6.26" 
+  },
+  "config" : {
+    "php" : "5.6.*"
+  }
+}
