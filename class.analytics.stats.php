@@ -19,14 +19,14 @@ class GoogleAnalyticsStats
 	 *
 	 * @param token - a one-time use token to be exchanged for a real token
 	 **/
-	function GoogleAnalyticsStats()
+	function __construct()
 	{
 
 			# Include SimplePie if it doesn't exist
 			if ( !class_exists('SimplePie') ) {
 				require_once (ABSPATH . WPINC . '/class-feed.php');
 			}
-			
+
 			if ( !class_exists('Google_Client') ) {
 				require_once 'google-api-php-client/src/Google_Client.php';
 			}
@@ -40,7 +40,7 @@ class GoogleAnalyticsStats
             $this->client->setClientId(GOOGLE_ANALYTICATOR_CLIENTID);
             $this->client->setClientSecret(GOOGLE_ANALYTICATOR_CLIENTSECRET);
             $this->client->setRedirectUri(GOOGLE_ANALYTICATOR_REDIRECT);
-			
+
             $this->client->setScopes(array("https://www.googleapis.com/auth/analytics"));
 
             // Magic. Returns objects from the Analytics Service instead of associative arrays.
@@ -148,7 +148,7 @@ class GoogleAnalyticsStats
         function getAllProfiles()
         {
             $profile_array = array();
-            
+
             try {
                     $profiles = $this->analytics->management_webproperties->listManagementWebproperties('~all');
                 }
@@ -248,15 +248,15 @@ class GoogleAnalyticsStats
 		{
 			$params['max-results'] = $limit;
 		}
-           
+
            // Just incase, the ga: is still used in the account id, strip it out to prevent it breaking
            $filtered_id = str_replace( 'ga:', '', $this->accountId );
-           
+
            if(!$filtered_id){
                 echo 'Error - Account ID is blank';
                 return false;
            }
-                
+
 	   return $analytics->data_ga->get(
 	       'ga:'.$filtered_id,
 	       $startDate,
@@ -284,4 +284,4 @@ class GoogleAnalyticsStats
 			return '2005-01-01';
 	}
 
-} // END class	
+} // END class
